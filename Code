@@ -1,0 +1,124 @@
+Lbl 01
+ClrHome
+Menu("Rastins Stash","Electromagnetism",A1,"Projectile motion calc",A2,"Circular motion",A3,"Quit",Q)
+Lbl A1
+Menu("Electromagnetism Shit","Formulas",B1,"Right hand rule",B2,"Back",01)
+Lbl B1
+Menu("formulas","Page 1",P1,"Page 2",P2,"Page 3",P3,"Back",A1)
+Lbl P1
+ClrHome
+Disp "r=MV/QB : can be used in"
+Disp "most radius equations"
+Disp ""
+Disp "v=√(2QV/m) : CRT formula"
+Disp "V->Accelerating Voltage"
+Disp ""
+Disp "r=B√(2mV/Q) : CRT magnet"
+Disp "radius formula"
+Pause "press enter to back"
+Goto B1
+Lbl P2
+ClrHome
+Disp "B=µ₀I/2πr : Strenght of"
+Disp "field from wire"
+Disp ""
+Disp "τ=NIABsinθ : Torque on"
+Disp "I loop,A->Area of loop"
+Disp ""
+Disp "B=Nµ₀I/2r : B in center of"
+Disp "loop"
+Pause "press enter to back"
+Goto B1
+Lbl P3
+ClrHome
+Disp "F=((µ₀I₁I₂)/(2πr))*l"
+Disp "force of one wire on"
+Disp "another,l->lenght"
+Disp ""
+Disp "emf=vBL : motional emf"
+Disp ""
+Disp "emf=NBAwsin(wt) : w-> angular v"
+Disp "A->Area of loop(maybe)"
+Pause "press enter to back"
+Goto B1
+Lbl B2
+ClrHome
+Disp "Thumb in direction of"
+Disp "velocity or current."
+Disp "hand pointing in"
+Disp "direction of B-Field. And"
+Disp "force comes out of palm"
+Disp ""
+Disp "Use left hand for - charge"
+Disp ""
+Pause "press enter to back"
+Goto A1
+Lbl A2
+ClrDraw
+AxesOff
+ClrHome
+Disp "Projectile Motion"
+Disp ""
+Degree
+Input "Initial Velocity=",S
+Input "Angle from X-axis=",A
+Input "Height Thrown From=",H
+9.8→G
+abs(G)→G
+Ssin(A)→V
+(V²/(2G))→J
+H+J→X
+√(V²+2GH)→L
+A→θ
+Scos(θ)→B
+Ssin(θ)→K
+(­G*0.5)→Q
+V/G→T
+((V²cos(2A))/G)→R
+(√(L²+B²))→P
+Text(1,1,"V=",S,"sin(",A,")=",V)
+Text(20,1,"V²=2GH")
+Text(40,1,"V²/2G=H -->",V²,"/",2G,"=",J
+Text(60,1,"MAX HEIGHT=int H+H")
+Text(80,1,"MAX H=",H,"+",J,"=",X)
+Text(100,1,"TIME TO REACH MAX=V/G
+Text(120,1,"TIME TO REACH MAX=",T,"s")
+Text(140,1,"PRESS ENTER TO CONTINUE")
+Pause 
+ClrDraw
+Text(1,1,"IMPACT VELOCITY")
+Text(20,1,"VERTICAL SPEED="
+Text(40,1,"V=√(",V²,"+",2,"(",G,")","(",H,")")
+Text(60,1,"V=√(",V²+2GH,")=",L)
+Text(80,1,"HORIZONTAL SPEED="
+Text(100,1,"=",S,"cos(",θ,")=",B)
+Text(120,1,"SPEED={(Vs)²+(Hs)²}^1/2"
+Text(140,1,"SPEED=",P,"m/s")
+Pause 
+ClrDraw
+(­K+√(K²-4QH))/(2Q)→Y
+(­K-√(K²-4QH))/(2Q)→Z
+If Y<Z
+Then
+(­K-√(K²-4QH))/(2Q)→Y
+(Scos(θ)*(Y))→A
+Text(1,1,"TOTAL TIME:"
+Text(17,1,"=",S,"sin(",θ,")t+(",(0.5*­G),")t²+",H
+Text(34,1,"-B+√(B²-4AC)/2A"
+Text(51,1,"ROOT=",Y
+Text(68,1,"TOTAL TIME=",Y,"s"
+Text(85,1,"TOTAL DISTANCE"
+Text(102,1,"DISTANCE=SPEED*TIME"
+Text(119,1,"D=",S,"cos(",θ,")*",Y
+Text(136,1,"RANGE=",A,"M"
+Pause 
+ClrDraw
+AxesOn 
+ClrHome
+Goto 01
+Lbl A3
+Menu("Circular motion","Formulas",C1,"Circular motion calc",C2,"Back",01)
+Lbl C2
+prgmCIRMOT
+Goto A3
+Lbl Q
